@@ -1,6 +1,6 @@
 # LowLine
 
-Inven is a barcode-based inventory tracking app. Scan an item to look it up,
+LowLine is a barcode-based inventory tracking app. Scan an item to look it up,
 adjust its quantity, and get notified when stock runs low. Inventory lives in
 **Spaces** — personal or shared containers that a group of people can track
 together.
@@ -46,3 +46,7 @@ flutter pub get
 flutter analyze
 flutter run
 ```
+
+## License
+
+All rights reserved. See [LICENSE](LICENSE).

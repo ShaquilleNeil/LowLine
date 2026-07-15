@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 // MaterialApp/router setup, empty for now.
-class InvenApp extends StatelessWidget {
-  const InvenApp({super.key});
+class LowLineApp extends StatelessWidget {
+  const LowLineApp({super.key});
 
   @override
   Widget build(BuildContext context) {

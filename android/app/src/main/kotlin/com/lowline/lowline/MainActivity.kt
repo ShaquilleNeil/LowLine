@@ -1,4 +1,4 @@
-package com.inven.inven
+package com.lowline.lowline
 
 import io.flutter.embedding.android.FlutterActivity
 
