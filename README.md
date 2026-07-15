@@ -1,4 +1,4 @@
-# Inven
+# LowLine
 
 Inven is a barcode-based inventory tracking app. Scan an item to look it up,
 adjust its quantity, and get notified when stock runs low. Inventory lives in
