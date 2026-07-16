@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "744827842887",
+    "project_id": "lowline-68daa",
+    "storage_bucket": "lowline-68daa.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:744827842887:android:757b5cef35315255ec1c62",
+        "android_client_info": {
+          "package_name": "com.lowline.lowline"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuaxIESKrgIKmbaRR7pL2Lz0sRxvg0CiE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
