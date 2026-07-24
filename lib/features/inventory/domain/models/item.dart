@@ -15,7 +15,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
- enum BarcodeType { internal, external }
+ enum BarcodeType { internal, external, none}
 class Item {
   final String id;
   final String spaceId;
