@@ -31,6 +31,11 @@ Future<void> createItem(Item item) async {
   await _db.collection('items').add(item.toFirestore());
   }
 
+Future<List<Item>> getItemsBySpaceId(String spaceId) async {
+  final snapshot = await _db.collection('items').where('spaceId', isEqualTo: spaceId).get();
+  return snapshot.docs.map((doc) => Item.fromFirestore(doc)).toList();
+}
+
 Future<void> updateItem(Item item) async {
   final data = item.toFirestore();
   data['updatedAt'] = Timestamp.now();
