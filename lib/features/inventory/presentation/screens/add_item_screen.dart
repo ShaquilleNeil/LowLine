@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:lowline/features/inventory/domain/models/item.dart';
 import 'package:lowline/services/firebase/firestore_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'dart:io';
 
 class AddItemScreen extends StatefulWidget {
   const AddItemScreen({super.key});
@@ -17,6 +19,9 @@ class _AddItemScreenState extends State<AddItemScreen> {
   final TextEditingController _itemThresholdController = TextEditingController();
   String? _selectedCategory;
   final FirestoreService _firestoreService = FirestoreService();
+    final ImagePicker _imagePicker = ImagePicker();
+  XFile? _selectedImage;
+  final TextEditingController _imageUrlController = TextEditingController();
 
  
 @override
@@ -27,6 +32,15 @@ void dispose() {
     super.dispose();
   }
 
+
+Future<void> _pickImage() async {
+  final XFile? picked = await _imagePicker.pickImage(source: ImageSource.gallery);
+  if (picked != null) {
+    setState(() {
+      _selectedImage = picked;
+    });
+  }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +56,38 @@ void dispose() {
                   key: _formGlobalKey,
                   child: Column(
                     children: [
+                      InkWell(
+                        onTap: _pickImage,
+                        child: Container(
+                              width: double.infinity,
+                              height: 150,
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.grey),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              child: Stack(
+                                children: [
+                                  _selectedImage == null
+                                      ? const Center(child: Text('No image selected'))
+                                      : Image.file(
+                                          File(_selectedImage!.path),
+                                          fit: BoxFit.cover,
+                                          width: double.infinity,
+                                          height: double.infinity,
+                                        ),
+                                  Align(
+                                    alignment: Alignment.bottomRight,
+                                    child: IconButton(
+                                      icon: const Icon(Icons.camera_alt),
+                                      onPressed: _pickImage,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                      ),
+
+                      SizedBox(height: 20),
                       TextFormField(
                         controller: _itemNameController,
                         decoration: InputDecoration(

@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+<key>NSCameraUsageDescription</key>
+	<string>Lowline needs camera access so you can take a photo of your inventory items.</string>
+<key>NSPhotoLibraryUsageDescription</key>
+	<string>Lowline needs access to your photos so you can add a picture to your inventory items.</string>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>

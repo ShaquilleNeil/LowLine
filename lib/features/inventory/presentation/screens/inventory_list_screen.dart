@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:lowline/features/inventory/presentation/screens/add_item_screen.dart';
 import 'package:lowline/features/inventory/domain/models/item.dart';
 import 'package:lowline/services/firebase/firestore_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:lowline/features/spaces/domain/models/space.dart';
+
 
 class InventoryListScreen extends StatefulWidget {
   const InventoryListScreen({super.key});
@@ -15,6 +17,7 @@ class InventoryListScreen extends StatefulWidget {
 class _InventoryListScreenState extends State<InventoryListScreen> {
   final FirestoreService _firestoreService = FirestoreService();
   late Future<List<Item>> _inventoryFuture;
+
 
   @override
   void initState() {
@@ -32,6 +35,8 @@ Future<List<Item>> loadInventory() {
     return _firestoreService.getItemsBySpaceId(space.id);
   });
 }
+
+
 
  @override
 Widget build(BuildContext context) {

@@ -1,7 +1,11 @@
 // Firestore service — empty for now.
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:lowline/features/inventory/domain/models/item.dart';
 import 'package:lowline/features/spaces/domain/models/space.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+
 
 
 class FirestoreService {
@@ -46,6 +50,22 @@ Future<void> deleteItem(Item item) async {
   await _db.collection('items').doc(item.id).delete();
 }
 
+
+Future<String> uploadItemImage({
+  required String spaceId,
+  required String itemId,
+  required File imageFile,
+}) async {
+  final String fileName = '${DateTime.now().millisecondsSinceEpoch}.jpg';
+  final Reference ref = FirebaseStorage.instance.ref(
+    'spaces/$spaceId/items/$itemId/$fileName',
+  );
+
+  final UploadTask uploadTask = ref.putFile(imageFile);
+  final TaskSnapshot snapshot = await uploadTask;
+
+  return await snapshot.ref.getDownloadURL();
+}
   
   
 }
